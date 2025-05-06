@@ -4,6 +4,7 @@ package org.app.digital_banking_backend.Web;
 import lombok.AllArgsConstructor;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.app.digital_banking_backend.DTOs.CustomerDTO;
 import org.app.digital_banking_backend.Exceptions.CustomerNotFoundException;
 import org.app.digital_banking_backend.Services.BankAccountService;
@@ -13,6 +14,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin("*")
+@Slf4j
 
 
 public class CustomerRestController {

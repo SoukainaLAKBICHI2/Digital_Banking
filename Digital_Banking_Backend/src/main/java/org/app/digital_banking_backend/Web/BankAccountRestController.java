@@ -1,16 +1,20 @@
 package org.app.digital_banking_backend.Web;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.app.digital_banking_backend.DTOs.AccountHistoryDTO;
 import org.app.digital_banking_backend.DTOs.AccountOperationDTO;
 import org.app.digital_banking_backend.DTOs.BankAccountDTO;
 import org.app.digital_banking_backend.Exceptions.BankAccountNotFoundException;
 import org.app.digital_banking_backend.Services.BankAccountService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
+@RestController
+@AllArgsConstructor
+@CrossOrigin("*")
 public class BankAccountRestController {
     private BankAccountService bankAccountService;
 
