@@ -1,18 +1,42 @@
 <div class="container mt-5">
   <h2 class="mb-4 text-primary">Customer List</h2>
 
+  <!-- <form [formGroup]="searchFormGroup"  class="mb-4">Search Form -->
+  <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()" class="mb-4">
+    <div class="input-group">
+      <input type="text" formControlName="keyword" class="form-control" placeholder="Search by name or email...">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+  </form>
+
+  <!-- Table for customer list -->
   <div *ngIf="customers | async as list; else loading">
-    <ul class="list-group">
-      <li *ngFor="let c of list" class="list-group-item d-flex justify-content-between align-items-center">
-        <div>
-          <strong>ID:</strong> {{ c.id }}<br>
-          <strong>Name:</strong> {{ c.name }}<br>
-          <strong>Email:</strong> {{ c.email }}
-        </div>
-      </li>
-    </ul>
+    <table class="table table-bordered table-hover">
+      <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th class="text-center">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of list">
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.email }}</td>
+        <td class="text-center">
+          <!--<button class="btn btn-warning btn-sm me-2" (click)="handleEditCustomer(c)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="handleDeleteCustomer(c)">Delete</button>-->
+          <button class="btn btn-warning btn-sm me-2">Edit</button>
+          <button class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 
+  <!-- Loading template -->
   <ng-template #loading>
     <div class="alert alert-info text-center" role="alert">
       Loading customers...
