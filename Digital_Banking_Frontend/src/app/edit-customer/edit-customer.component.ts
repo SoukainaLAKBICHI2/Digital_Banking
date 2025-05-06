@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { CustomerService } from '../services/customer.service';
-import { Customer } from '../model/customer.model';
 
 @Component({
   selector: 'app-edit-customer',

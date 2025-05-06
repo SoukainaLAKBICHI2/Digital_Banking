@@ -1,7 +1,6 @@
 <div class="container mt-5">
   <h2 class="mb-4 text-primary">Customer List</h2>
 
-  <!-- <form [formGroup]="searchFormGroup"  class="mb-4">Search Form -->
   <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()" class="mb-4">
     <div class="input-group">
       <input type="text" formControlName="keyword" class="form-control" placeholder="Search by name or email...">

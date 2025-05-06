@@ -2,11 +2,13 @@ import { Routes } from '@angular/router';
 import { CustomersComponent } from './customers/customers.component';
 import {AccountsComponent} from './accounts/accounts.component';
 import {EditCustomerComponent} from './edit-customer/edit-customer.component';
+import {NewCustomerComponent} from './new-customer/new-customer.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'customers', pathMatch: 'full' },
   { path: 'customers', component: CustomersComponent },
   { path: 'accounts', component: AccountsComponent },
+  { path: 'add-customer', component: NewCustomerComponent},
   {
     path: 'edit-customer/:id', component: EditCustomerComponent}
 ];

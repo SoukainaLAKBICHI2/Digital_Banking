@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h2>Add New Customer</h2>
+  <form [formGroup]="newCustomerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <div *ngIf="newCustomerForm.get('name')?.invalid && newCustomerForm.get('name')?.touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" type="email" class="form-control" formControlName="email">
+      <div *ngIf="newCustomerForm.get('email')?.invalid && newCustomerForm.get('email')?.touched" class="text-danger">
+        <div *ngIf="newCustomerForm.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="newCustomerForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!newCustomerForm.valid">Add Customer</button>
+  </form>
+</div>
