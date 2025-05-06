@@ -1,1 +1,21 @@
-<p>customers works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4 text-primary">Customer List</h2>
+
+  <div *ngIf="customers | async as list; else loading">
+    <ul class="list-group">
+      <li *ngFor="let c of list" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>ID:</strong> {{ c.id }}<br>
+          <strong>Name:</strong> {{ c.name }}<br>
+          <strong>Email:</strong> {{ c.email }}
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #loading>
+    <div class="alert alert-info text-center" role="alert">
+      Loading customers...
+    </div>
+  </ng-template>
+</div>

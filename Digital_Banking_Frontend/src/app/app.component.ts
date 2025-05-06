@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import {NavbarComponent} from './navbar/navbar.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     NavbarComponent,
     RouterOutlet,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   styleUrl: './app.component.css'
 })
