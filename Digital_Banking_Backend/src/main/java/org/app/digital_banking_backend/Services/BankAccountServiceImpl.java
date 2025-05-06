@@ -169,8 +169,14 @@ public class BankAccountServiceImpl implements BankAccountService {
         return dtoMapper.fromCustomer(savedCustomer);
     }
     @Override
-    public void deleteCustomer(Long customerId){
-        customerRepository.deleteById(customerId);
+    public void deleteCustomer(Long customerId) {
+        if (customerRepository.existsById(customerId)) {
+            bankAccountRepository.deleteByCustomerId(customerId);
+
+            customerRepository.deleteById(customerId);
+        } else {
+            System.out.println("Customer Not Found");
+        }
     }
 
     @Override

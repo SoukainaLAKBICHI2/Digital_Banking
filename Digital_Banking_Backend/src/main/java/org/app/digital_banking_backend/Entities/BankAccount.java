@@ -23,6 +23,7 @@ public abstract class BankAccount {
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
     @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToMany(mappedBy = "bankAccount",fetch = FetchType.LAZY)

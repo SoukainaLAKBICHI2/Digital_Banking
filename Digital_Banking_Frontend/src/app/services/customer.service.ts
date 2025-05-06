@@ -19,4 +19,14 @@ export class CustomerService {
   public searchCustomers(keyword : string):Observable<Array<Customer>>{
     return this.http.get<Array<Customer>>(this.baseUrl+"/customers/search?keyword="+keyword)
   }
+  public getCustomerById(id: string): Observable<Customer> {
+    return this.http.get<Customer>(this.baseUrl+"/customers/"+id);
+  }
+
+  public updateCustomer(id: string, customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(this.baseUrl+"/customers/"+id, customer);
+  }
+  public deleteCustomer(id: number): Observable<void> {
+    return this.http.delete<void>(this.baseUrl+"/customers/"+id);
+  }
 }
