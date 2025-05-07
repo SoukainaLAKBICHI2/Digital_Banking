@@ -27,6 +27,9 @@
         <td class="text-center">
           <button class="btn btn-warning btn-sm me-2" (click)="onEditCustomer(c)">Edit</button>
           <button class="btn btn-danger btn-sm" (click)="handleDeleteCustomer(c)">Delete</button>
+          <button (click)="handleCustomerAccounts(c)" class="btn btn-success">
+            Accounts
+          </button>
         </td>
       </tr>
       </tbody>
