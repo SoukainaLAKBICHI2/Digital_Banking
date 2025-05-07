@@ -44,6 +44,7 @@ public class SecurityConfig {
         PasswordEncoder passwordEncoder = passwordEncoder();
         return new InMemoryUserDetailsManager(
                 User.withUsername("Soukaina").password(passwordEncoder.encode("1234")).authorities("USER").build(),
+                User.withUsername("User").password(passwordEncoder.encode("1234")).authorities("USER").build(),
                 User.withUsername("admin").password(passwordEncoder.encode("1234")).authorities("USER","ADMIN").build()
         );
 
