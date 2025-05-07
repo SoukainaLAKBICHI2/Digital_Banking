@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { CustomerService } from '../services/customer.service'; // Adjust path as needed
 import { Router } from '@angular/router';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-new-customer',
   templateUrl: './new-customer.component.html',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   styleUrls: ['./new-customer.component.css']
 })
