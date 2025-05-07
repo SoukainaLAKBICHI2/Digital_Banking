@@ -6,7 +6,7 @@ import {jwtDecode} from "jwt-decode";
   providedIn: 'root'
 })
 export class AuthService {
-  accessToken!: string ;
+  accessToken!: any ;
   isAuthenticated: boolean = false;
   roles: any;
   username: any;
@@ -32,5 +32,12 @@ export class AuthService {
     this.roles = decodeJwt.scope;
     this.username = decodeJwt.sub;
 
+  }
+
+  logout() {
+    this.isAuthenticated=false;
+    this.accessToken= undefined;
+    this.username= undefined;
+    this.roles=undefined;
   }
 }

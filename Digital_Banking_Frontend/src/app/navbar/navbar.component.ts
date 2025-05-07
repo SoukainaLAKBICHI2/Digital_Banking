@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import {RouterModule} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Router, RouterModule} from "@angular/router";
+import {CustomerService} from '../services/customer.service';
+import {FormBuilder} from '@angular/forms';
+import {AuthService} from '../services/auth.service';
 
 
 @Component({
@@ -8,4 +11,16 @@ import {RouterModule} from "@angular/router";
   imports: [RouterModule],
   templateUrl: "./navbar.component.html"
 })
-export class NavbarComponent {}
+export class NavbarComponent implements OnInit{
+
+  constructor(protected authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+  }
+handleLogout(){
+    this.authService.logout();
+    this.router.navigateByUrl("/login");
+}
+
+  protected readonly AuthService = AuthService;
+}
