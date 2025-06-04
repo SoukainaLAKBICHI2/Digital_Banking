@@ -28,20 +28,22 @@ public class BankAccountRestController {
     public List<BankAccountDTO> listAccounts(){
         return bankAccountService.bankAccountList();
     }
+
     @GetMapping("/accounts/{accountId}/operations")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
     public List<AccountOperationDTO> getHistory(@PathVariable String accountId){
         return bankAccountService.accountHistory(accountId);
     }
 
-    @GetMapping("/accounts/{accountId}/pageOperations")
-    @PreAuthorize("hasAuthority('SCOPE_USER')")
+    @GetMapping("/accounts/{accountId}/history")
+    @PreAuthorize("hasAnyAuthority('SCOPE_ADMIN','SCOPE_USER')")
     public AccountHistoryDTO getAccountHistory(
             @PathVariable String accountId,
             @RequestParam(name="page",defaultValue = "0") int page,
             @RequestParam(name="size",defaultValue = "5")int size) throws BankAccountNotFoundException {
         return bankAccountService.getAccountHistory(accountId,page,size);
     }
+
     @PostMapping("/accounts/debit")
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public DebitDTO debit(@RequestBody DebitDTO debitDTO) throws BankAccountNotFoundException, BalanceNotSufficientException {

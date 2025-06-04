@@ -1,6 +1,5 @@
 package org.app.digital_banking_backend.security;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

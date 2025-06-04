@@ -23,14 +23,14 @@ public class CustomerRestController {
     private BankAccountService bankAccountService;
 
     @GetMapping("/customers")
-    @PreAuthorize("hasAuthority('SCOPE_USER')")
+    @PreAuthorize("hasAnyAuthority('SCOPE_ADMIN','SCOPE_USER')")
     public List<CustomerDTO> customers(){
         return bankAccountService.listCostumers();
     }
 
 
     @GetMapping("/customers/search")
-    @PreAuthorize("hasAuthority('SCOPE_USER')")
+    @PreAuthorize("hasAnyAuthority('SCOPE_ADMIN','SCOPE_USER')")
     public List<CustomerDTO> searchCustomers(@RequestParam(name = "keyword",defaultValue = "") String keyword){
         return bankAccountService.searchCustomers("%"+keyword+"%");
     }
@@ -40,13 +40,13 @@ public class CustomerRestController {
         return bankAccountService.getCustomer(customerId);
     }
     @PostMapping("/customers")
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('SCOPE_ADMIN','SCOPE_USER')")
     public CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO){
         return bankAccountService.saveCostumer(customerDTO);
     }
 
     @PutMapping("/customers/{id}")
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('SCOPE_ADMIN','SCOPE_USER')")
     public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO){
         customerDTO.setId(id);
         return bankAccountService.updateCostumer(customerDTO);

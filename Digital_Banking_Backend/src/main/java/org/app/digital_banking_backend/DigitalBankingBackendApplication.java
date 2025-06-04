@@ -30,7 +30,7 @@ public class DigitalBankingBackendApplication {
                             BankAccountRepository bankAccountRepository,
                             AccountOperationRepository accountOperationRepository){
         return args -> {
-            Stream.of("Hassan","Yassine","Aicha").forEach(name->{
+            Stream.of("Soukaina","Oumayma","Aicha").forEach(name->{
                 Customer customer=new Customer();
                 customer.setName(name);
                 customer.setEmail(name+"@gmail.com");
