@@ -39,7 +39,7 @@ export class EditCustomerComponent implements OnInit {
   onUpdateCustomer() {
     if (this.customerForm.invalid) return;
     this.customerService.updateCustomer(this.customerId, this.customerForm.value).subscribe({
-      next: () => this.router.navigateByUrl('/customers'),
+      next: () => this.router.navigateByUrl('/admin/customers'),
       error: err => console.error(err)
     });
   }

@@ -1,17 +1,33 @@
-<div class="p-3">
-  <div class="card">
-    <div class="card-header">Authentication</div>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg" style="min-width: 400px; max-width: 500px; width: 100%;">
+    <div class="card-header text-center text-black">
+      <h5 class="mb-0">🔐 Authentication</h5>
+    </div>
     <div class="card-body">
       <form [formGroup]="formLogin" (ngSubmit)="handleLogin()">
         <div class="mb-3">
           <label class="form-label">Username</label>
-          <input type="text" class="form-control" formControlName="username">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your username"
+            formControlName="username"
+          />
         </div>
         <div class="mb-3">
           <label class="form-label">Password</label>
-          <input type="password" class="form-control" formControlName="password">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter your password"
+            formControlName="password"
+          />
         </div>
-        <button class="bt btn-success">Login</button>
+        <div class="d-grid">
+          <button class="btn btn-primary" type="submit">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Login
+          </button>
+        </div>
       </form>
     </div>
   </div>

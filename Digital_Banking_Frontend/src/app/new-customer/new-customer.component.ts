@@ -32,7 +32,7 @@ export class NewCustomerComponent implements OnInit {
   public onSubmit(): void {
     if (this.newCustomerForm.valid) {
       this.customerService.addCustomer(this.newCustomerForm.value).subscribe({
-        next: () => this.router.navigateByUrl('/customers'),
+        next: () => this.router.navigateByUrl('admin/customers'),
         error: (err) => alert('Error: ' + err.message)
       });
     }

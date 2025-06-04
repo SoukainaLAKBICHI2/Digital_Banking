@@ -4,8 +4,7 @@ import { AuthService } from '../services/auth.service';
 
 export const appHttpInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
-  const token = authService.accessToken || localStorage.getItem('access_token');
-
+  const token = authService.accessToken || localStorage.getItem('token');
   if (token && !req.url.includes('/auth/login')) {
     const cloned = req.clone({
       headers: req.headers.set('Authorization', 'Bearer ' + token)

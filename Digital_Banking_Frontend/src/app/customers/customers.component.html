@@ -2,38 +2,51 @@
   <h2 class="mb-4 text-primary">Customer List</h2>
 
   <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()" class="mb-4">
-    <div class="input-group">
-      <input type="text" formControlName="keyword" class="form-control" placeholder="Search by name or email...">
+    <div class="input-group shadow-sm">
+      <input
+        type="text"
+        formControlName="keyword"
+        class="form-control"
+        placeholder="Search by name or email..."
+      />
       <button class="btn btn-primary" type="submit">Search</button>
     </div>
   </form>
 
   <!-- Table for customer list -->
   <div *ngIf="customers | async as list; else loading">
-    <table class="table table-bordered table-hover">
-      <thead class="table-light">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th class="text-center">Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let c of list">
-        <td>{{ c.id }}</td>
-        <td>{{ c.name }}</td>
-        <td>{{ c.email }}</td>
-        <td class="text-center">
-          <button class="btn btn-warning btn-sm me-2" (click)="onEditCustomer(c)">Edit</button>
-          <button class="btn btn-danger btn-sm" (click)="handleDeleteCustomer(c)">Delete</button>
-          <button (click)="handleCustomerAccounts(c)" class="btn btn-success">
-            Accounts
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle shadow-sm">
+        <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th class="text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of list">
+          <td>{{ c.id }}</td>
+          <td>{{ c.name }}</td>
+          <td>{{ c.email }}</td>
+          <td class="text-center">
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+              <button class="btn btn-sm btn-warning" (click)="onEditCustomer(c)">
+                <i class="bi bi-pencil-square"></i> Edit
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="handleDeleteCustomer(c)">
+                <i class="bi bi-trash"></i> Delete
+              </button>
+              <button class="btn btn-sm btn-success" (click)="handleCustomerAccounts(c)">
+                <i class="bi bi-bank"></i> Accounts
+              </button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- Loading template -->

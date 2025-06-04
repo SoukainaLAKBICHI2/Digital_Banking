@@ -17,6 +17,7 @@ export class CustomerService {
   }
 
   public searchCustomers(keyword : string):Observable<Array<Customer>>{
+    console.log(localStorage.getItem('token'));
     return this.http.get<Array<Customer>>(this.baseUrl+"/customers/search?keyword="+keyword)
   }
   public getCustomerById(id: string): Observable<Customer> {

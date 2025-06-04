@@ -45,7 +45,7 @@ export class CustomersComponent implements OnInit {
     this.customers = this.customerService.searchCustomers(keyword)
   }
   onEditCustomer(customer: Customer) {
-    this.router.navigateByUrl(`/edit-customer/${customer.id}`);
+    this.router.navigateByUrl(`/admin/edit-customer/${customer.id}`);
   }
   handleDeleteCustomer(c: Customer) {
     let conf = confirm("Are you sure?");
@@ -66,6 +66,6 @@ export class CustomersComponent implements OnInit {
     })
   }
   handleCustomerAccounts(customer: Customer) {
-    this.router.navigateByUrl("/customer-accounts/" + customer.id);
+    this.router.navigateByUrl("/admin/customer-accounts/" + customer.id);
   }
 }

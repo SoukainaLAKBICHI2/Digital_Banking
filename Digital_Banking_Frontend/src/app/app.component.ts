@@ -10,7 +10,6 @@ import { RouterModule } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   imports: [
-    NavbarComponent,
     RouterOutlet,
     HttpClientModule,
     ReactiveFormsModule,
