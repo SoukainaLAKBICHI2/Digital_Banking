@@ -214,7 +214,7 @@ Digital_Banking_Frontend/
 
 Chaque utilisateur (Admin ou User) se connecte via une page de login.
 
-![Login](./Demo/login.png)
+![Login](./Demonstration/login.png)
 
 ---
 
@@ -223,19 +223,21 @@ Chaque utilisateur (Admin ou User) se connecte via une page de login.
 #### 🔍 Liste des clients (ADMIN et USER)
 Les utilisateurs peuvent voir la liste des clients avec leur ID, nom et email.
 
-![Liste Clients](./Demo/client-list.png)
+![Liste Clients](./Demonstration/client-list.png)
 
 #### ➕ Ajouter un client (ADMIN uniquement)
 Un formulaire permet d'ajouter un nouveau client avec validation.
 
-![Ajout Client](./Demo/add-client.png)
+![Ajout Client](./Demonstration/add-client.png)
 
 #### 📝 Modifier un client (ADMIN uniquement)
 
-![Modifier Client](./Demo/edit-client.png)
+![Modifier Client](./Demonstration/edit-client.png)
 
 #### ❌ Supprimer un client (ADMIN uniquement)
 Suppression avec une confirmation.
+
+![Supprimer Client](./Demonstration/delete-client.png)
 
 ---
 
@@ -245,13 +247,13 @@ Suppression avec une confirmation.
 
 L'administrateur peut voir tous les comptes associés à un client donné.
 
-![Comptes du client](./Demo/accounts-list.png)
+![Comptes du client](./Demonstration/accounts-list.png)
 
 #### 🔄 Historique des opérations (ADMIN et USER)
 
 Recherche d’un compte par ID pour afficher le solde et l’historique paginé des opérations (crédit, débit, transfert).
 
-![Historique des opérations](./Demo/account-history.png)
+![Historique des opérations](./Demonstration/account-history.png)
 
 #### 💸 Opérations (ADMIN uniquement)
 
@@ -259,13 +261,13 @@ Recherche d’un compte par ID pour afficher le solde et l’historique paginé 
 - **Débiter un compte**
 - **Effectuer un virement vers un autre compte**
 
-![Opérations](./Demo/Demo.png)
+![Opérations](./Demonstration/Demo.png)
 
 #### 🚫 Accès refusé (USER)
 
 Lorsqu’un utilisateur essaie d’accéder à une fonctionnalité réservée à l’ADMIN (comme l’ajout de client ou les opérations sur les comptes), il est automatiquement redirigé vers une page d’erreur :
 
-![Accès refusé](./Demo/not-authorized.png)
+![Accès refusé](./Demonstration/not-authorized.png)
 
 
 ## ✅ Installation / Prérequis
